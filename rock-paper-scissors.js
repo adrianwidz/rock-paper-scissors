@@ -1,4 +1,5 @@
-console.log("Hello World!");
+let humanScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3);
@@ -11,7 +12,6 @@ function getComputerChoice() {
     };
 };
 
-console.log(getComputerChoice());
 
 function getHumanChoice() {
     let choice = "";
@@ -27,4 +27,19 @@ function getHumanChoice() {
     };
 };
 
-console.log(getHumanChoice());
+
+function playRound(humanChoice, computerChoice) {
+    console.log(computerChoice);
+    console.log(humanChoice);
+    if (humanChoice == computerChoice) {
+        console.log("It's a draw!");
+    } else if ((humanChoice == "rock" && computerChoice == "scissors") || 
+               (humanChoice == "scissors" && computerChoice == "paper") || 
+               (humanChoice == "paper" && computerChoice == "rock")) {
+        console.log("You won!");
+    } else {
+        console.log("You loose!");
+    }
+}
+
+playRound(getHumanChoice(), getComputerChoice());
