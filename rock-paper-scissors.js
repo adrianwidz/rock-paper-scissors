@@ -1,6 +1,3 @@
-let humanScore = 0;
-let computerScore = 0;
-
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3);
     if (choice == 0) {
@@ -28,18 +25,41 @@ function getHumanChoice() {
 };
 
 
-function playRound(humanChoice, computerChoice) {
-    console.log(computerChoice);
-    console.log(humanChoice);
-    if (humanChoice == computerChoice) {
+function playGame() {
+
+    let humanScore = 0;
+    let computerScore = 0;
+
+    function playRound(humanChoice, computerChoice) {
+        console.log(computerChoice);
+        console.log(humanChoice);
+        if (humanChoice == computerChoice) {
+            console.log("No point!");
+        } else if ((humanChoice == "rock" && computerChoice == "scissors") || 
+                   (humanChoice == "scissors" && computerChoice == "paper") || 
+                   (humanChoice == "paper" && computerChoice == "rock")) {
+            console.log("Point for you!");
+            humanScore++;
+        } else {
+            console.log("Point for computer!");
+            computerScore++;
+        };
+    };
+
+    for (let i = 0; i < 5; i++) {
+        playRound(getHumanChoice(), getComputerChoice());
+    }
+
+    console.log(computerScore);
+    console.log(humanScore);
+
+    if (computerScore == humanScore) {
         console.log("It's a draw!");
-    } else if ((humanChoice == "rock" && computerChoice == "scissors") || 
-               (humanChoice == "scissors" && computerChoice == "paper") || 
-               (humanChoice == "paper" && computerChoice == "rock")) {
-        console.log("You won!");
+    } else if (humanScore > computerScore) {
+        console.log("Win for you!");
     } else {
-        console.log("You loose!");
+        console.log("You looser!")
     }
 }
 
-playRound(getHumanChoice(), getComputerChoice());
+playGame()
