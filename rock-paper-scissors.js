@@ -11,6 +11,7 @@ function getComputerChoice() {
 
 
 function getHumanChoice() {
+    
     let choice = "";
     while (true) {
         choice = prompt("Your move: ").toLowerCase();
@@ -61,3 +62,11 @@ function playGame() {
         console.log("You looser!")
     }
 }
+
+const choiceButtons = document.querySelectorAll(".choiceButton");
+choiceButtons.forEach(choiceButton => {
+    choiceButton.addEventListener('click', (e) => {
+        const playerChoice = e.target.innerText;
+        console.log(playerChoice)
+    })
+})
