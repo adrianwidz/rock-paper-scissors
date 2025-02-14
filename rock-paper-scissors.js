@@ -61,5 +61,3 @@ function playGame() {
         console.log("You looser!")
     }
 }
-
-playGame()
