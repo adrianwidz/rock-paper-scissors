@@ -80,6 +80,15 @@ function scoreUpdate() {
         } else {
             resultLabel.innerText = "Game Over: You looser!"
         }
+
+        const resetButton = document.createElement("button");
+        resetButton.textContent = "Play again";
+        document.body.appendChild(resetButton);
+
+        resetButton.addEventListener("click", () => {
+            location.reload();
+        })
+
     }
 }
 
