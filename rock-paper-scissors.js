@@ -68,9 +68,19 @@ function scoreUpdate() {
     playerScoreLabel.innerText = "Player Score: " + playerScore;
     computerScoreLabel.innerText = "Computer Score: " + computerScore;
 
+    if (computerScore == 5 || playerScore == 5) {
 
+        const choiceButtons = document.querySelectorAll(".choiceButton");
+        choiceButtons.forEach(choiceButton => choiceButton.setAttribute('disabled', ''));
 
-    
+        const resultLabel = document.querySelector("#result");
+
+        if (playerScore > computerScore) {
+            resultLabel.innerText = "Game Over: Win for you!"
+        } else {
+            resultLabel.innerText = "Game Over: You looser!"
+        }
+    }
 }
 
 const choiceButtons = document.querySelectorAll(".choiceButton");
