@@ -29,17 +29,17 @@ function getHumanChoice() {
 };
 
 function playRound(humanChoice, computerChoice) {
-    console.log(computerChoice);
-    console.log(humanChoice);
+    const resultLabel = document.querySelector("#result");
+
     if (humanChoice == computerChoice) {
-        console.log("No point!");
+        resultLabel.innerText = "No point!"
     } else if ((humanChoice == "rock" && computerChoice == "scissors") || 
                (humanChoice == "scissors" && computerChoice == "paper") || 
                (humanChoice == "paper" && computerChoice == "rock")) {
-        console.log("Point for you!");
+        resultLabel.innerText = "Point for you!"
         playerScore++;
     } else {
-        console.log("Point for computer!");
+        resultLabel.innerText = "Point for computer!"
         computerScore++;
     };
 };
@@ -56,18 +56,19 @@ function playGame() {
     } else if (humanScore > computerScore) {
         console.log("Win for you!");
     } else {
-        console.log("You looser!")
+        console.log("You looser!");
     }
 }
 
 function scoreUpdate() {
 
-    const playerScoreLabel = document.querySelector("#playerScore")
-    const computerScoreLabel = document.querySelector("#computerScore")
-    console.log(playerScoreLabel)
+    const playerScoreLabel = document.querySelector("#playerScore");
+    const computerScoreLabel = document.querySelector("#computerScore");
 
     playerScoreLabel.innerText = "Player Score: " + playerScore;
     computerScoreLabel.innerText = "Computer Score: " + computerScore;
+
+
 
     
 }
