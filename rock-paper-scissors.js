@@ -12,22 +12,6 @@ function getComputerChoice() {
     };
 };
 
-
-function getHumanChoice() {
-    
-    let choice = "";
-    while (true) {
-        choice = prompt("Your move: ").toLowerCase();
-
-        if (choice == "rock" || choice == "paper" || choice == "scissors") {
-            return choice;
-        } else {
-            alert("Invalid choice try again!");
-        }
-
-    };
-};
-
 function playRound(humanChoice, computerChoice) {
     const resultLabel = document.querySelector("#result");
 
@@ -44,21 +28,6 @@ function playRound(humanChoice, computerChoice) {
     };
 };
 
-function playGame() {
-
-    for (let i = 0; i < 5; i++) {
-        playRound(getHumanChoice(), getComputerChoice());
-    }
-
-
-    if (computerScore == humanScore) {
-        console.log("It's a draw!");
-    } else if (humanScore > computerScore) {
-        console.log("Win for you!");
-    } else {
-        console.log("You looser!");
-    }
-}
 
 function scoreUpdate() {
 
